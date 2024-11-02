@@ -53,5 +53,32 @@
         public string Status { get; set; }
     }
 
+    public class Video 
+    {
+        public string UrlOrigin { get; set; }
+        public double Size { get; set; }
+        public string Path { get; set; }
+        public string Note { get; set; }
+        public bool IsConverted { get; set; }
+    }
+    public class Platform 
+    {
+        public string Name { get; set; }
 
+    }
+    public class OrderStatus
+    {
+        public string Name { get; set; }
+
+    }
+    public class OrderState
+    {
+        public string Name { get; set; }
+
+    }
+    public class Field
+    {
+        public string Name { get; set; }
+
+    }
 }

@@ -10,14 +10,14 @@ public class DtoGenerator
     {
 
         string className = $"{entityName}.cs";
-        string filePath = Path.Combine(srcPath, "BASE.Entity","Entity" ,className);
+        string filePath = Path.Combine(srcPath, "IFAMILY.Entity","Entity" ,className);
 
         var sb = new StringBuilder();
 
         sb.AppendLine("using System;");
-        sb.AppendLine("using BASE.Entity;"); // Giả sử BaseFullAuditedEntity được định nghĩa ở đây
+        sb.AppendLine("using IFAMILY.Entity;"); // Giả sử BaseFullAuditedEntity được định nghĩa ở đây
         sb.AppendLine();
-        sb.AppendLine($"namespace BASE.Entity");
+        sb.AppendLine($"namespace IFAMILY.Entity");
         sb.AppendLine("{");
         sb.AppendLine($"    public class {entityName} : BaseFullAuditedEntity<long>");
         sb.AppendLine("    {");
@@ -42,8 +42,8 @@ public class DtoGenerator
 
     public static void GenerateDtos<T>( string srcPath,string entityName)
     {
-        string baseNamespace = "BASE.Model";
-        string directoryPath = Path.Combine(srcPath, "BASE.Model", entityName);
+        string baseNamespace = "IFAMILY.Model";
+        string directoryPath = Path.Combine(srcPath, "IFAMILY.Model", entityName);
 
         // Tạo thư mục nếu chưa tồn tại
         Directory.CreateDirectory(directoryPath);
@@ -61,7 +61,7 @@ public class DtoGenerator
         var sb = new StringBuilder();
 
         sb.AppendLine($"using System;");
-        sb.AppendLine($"using BASE.Model.BaseModels;");
+        sb.AppendLine($"using IFAMILY.Model.BaseModels;");
         sb.AppendLine();
         sb.AppendLine($"namespace {baseNamespace}.{typeof(T).Name}");
         sb.AppendLine("{");
@@ -86,7 +86,7 @@ public class DtoGenerator
         var sb = new StringBuilder();
 
         sb.AppendLine($"using System;");
-        sb.AppendLine($"using BASE.Model.BaseModels;");
+        sb.AppendLine($"using IFAMILY.Model.BaseModels;");
         sb.AppendLine();
         sb.AppendLine($"namespace {baseNamespace}.{typeof(T).Name}");
         sb.AppendLine("{");
@@ -129,7 +129,7 @@ public class DtoGenerator
         var sb = new StringBuilder();
 
         sb.AppendLine($"using System;");
-        sb.AppendLine($"using BASE.Model.BaseModels;");
+        sb.AppendLine($"using IFAMILY.Model.BaseModels;");
         sb.AppendLine();
         sb.AppendLine($"namespace {baseNamespace}.{typeof(T).Name}");
         sb.AppendLine("{");

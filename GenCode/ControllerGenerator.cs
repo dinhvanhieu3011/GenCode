@@ -7,24 +7,24 @@ public class ControllerGenerator
     public static void GenerateController<T>( string directoryPath)
     {
         var entityName = typeof(T).Name;
-        directoryPath = Path.Combine(directoryPath, "BASE.ApiGateway", "Controllers", "Admin" );
+        directoryPath = Path.Combine(directoryPath, "IFAMILY.ApiGateway", "Controllers", "Admin" );
         var sb = new StringBuilder();
 
-        sb.AppendLine("using BASE.CORE;");
+        sb.AppendLine("using IFAMILY.CORE;");
         sb.AppendLine("using Microsoft.AspNetCore.Mvc;");
         sb.AppendLine("using Microsoft.AspNetCore.Authorization;");
         sb.AppendLine("using System.Threading.Tasks;");
-        sb.AppendLine("using BASE.CORE.Settings;");
+        sb.AppendLine("using IFAMILY.CORE.Settings;");
         sb.AppendLine("using Microsoft.Extensions.Caching.Memory;");
-        sb.AppendLine("using BASE.ApiGateway.Controllers.BaseController;");
-        sb.AppendLine("using BASE.ApiGateway.Service.Worker;");
-        sb.AppendLine("using BASE.CORE.FileService;");
-        sb.AppendLine("using BASE.Services.Interfaces;");
-        sb.AppendLine("using BASE.Infrastructure.Interface;");
-        sb.AppendLine($"using BASE.Model.{entityName};");
-        sb.AppendLine($"using BASE.Entity;");
+        sb.AppendLine("using IFAMILY.ApiGateway.Controllers.BaseController;");
+        sb.AppendLine("using IFAMILY.ApiGateway.Service.Worker;");
+        sb.AppendLine("using IFAMILY.CORE.FileService;");
+        sb.AppendLine("using IFAMILY.Services.Interfaces;");
+        sb.AppendLine("using IFAMILY.Infrastructure.Interface;");
+        sb.AppendLine($"using IFAMILY.Model.{entityName};");
+        sb.AppendLine($"using IFAMILY.Entity;");
         sb.AppendLine();
-        sb.AppendLine($"namespace BASE.ApiGateway.Controllers.Admin");
+        sb.AppendLine($"namespace IFAMILY.ApiGateway.Controllers.Admin");
         sb.AppendLine("{");
         sb.AppendLine($"    [Route(\"api/admin/[controller]\")]");
         sb.AppendLine($"    [ApiController]");

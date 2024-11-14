@@ -1,4 +1,6 @@
-﻿namespace GenCode
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace GenCode
 {
     public class Store /*: BaseFullAuditedEntity<long>*/
     {
@@ -80,5 +82,21 @@
     {
         public string Name { get; set; }
 
+    }
+    public class UserInfo
+    {
+        public string FullName { get; set; }
+        public DateTime? DateOfBirth { get; set; }
+        public bool Sex { get; set; }
+        public string Country { get; set; }
+        public string City { get; set; }
+        public string Hometown { get; set; }
+        public string Biography { set; get; }
+        public string Education { set; get; }
+        public string Career { set; get; }
+        public string PhoneNumber { set; get; }
+        public long? ThumbnailId { get; set; }
+        public long? AvatarId { get; set; }
+        public string UserId { get; set; }
     }
 }

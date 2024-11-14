@@ -7,8 +7,8 @@ public class ServiceGenerator
     public static void UpdateConfigurationDependency<T>(string rootPath)
     {
         string entityName = typeof(T).Name;
-        //C:\Users\AsRock\source\repos\CRM\src\BASE.ApiGateway\Configuration\AutoMapperProfile.cs
-        string filePath = Path.Combine(rootPath, "BASE.ApiGateway", "Configuration", "ConfigurationDependency.cs");
+        //C:\Users\AsRock\source\repos\CRM\src\IFAMILY.ApiGateway\Configuration\AutoMapperProfile.cs
+        string filePath = Path.Combine(rootPath, "IFAMILY.ApiGateway", "Configuration", "ConfigurationDependency.cs");
 
         var lines = File.ReadAllLines(filePath);
         const int insertLine = 61; // Dòng 61 để chèn dịch vụ
@@ -44,7 +44,7 @@ public class ServiceGenerator
     public static void UpdateAutoMapperProfile<T>(string rootPath)
     {
         string entityName = typeof(T).Name;
-        string filePath = Path.Combine(rootPath, "BASE.ApiGateway", "Configuration", "AutoMapperProfile.cs");
+        string filePath = Path.Combine(rootPath, "IFAMILY.ApiGateway", "Configuration", "AutoMapperProfile.cs");
 
         var lines = File.ReadAllLines(filePath);
         const int insertLine = 25; // Dòng 25 để chèn đoạn CreateMap
@@ -83,8 +83,8 @@ public class ServiceGenerator
     public static void GenerateServiceFiles<T>(string rootPath)
     {
         string entityName =  typeof(T).Name;
-        string implementsDirectory = Path.Combine(rootPath,"BASE.Services", "Implements", "Services");
-        string interfacesDirectory = Path.Combine(rootPath,"BASE.Services", "Interfaces", "Services");
+        string implementsDirectory = Path.Combine(rootPath,"IFAMILY.Services", "Implements", "Services");
+        string interfacesDirectory = Path.Combine(rootPath,"IFAMILY.Services", "Interfaces", "Services");
 
         // Tạo thư mục nếu chưa tồn tại
         Directory.CreateDirectory(implementsDirectory);
@@ -103,13 +103,13 @@ public class ServiceGenerator
         var sb = new StringBuilder();
 
         sb.AppendLine("using System;");
-        sb.AppendLine($"using BASE.Model;"); // Giả sử có các DTO trong BASE.Model
-        sb.AppendLine($"using BASE.Services;"); // Thêm namespace cho IBaseService
-        sb.AppendLine($"using BASE.Entity;");
-        sb.AppendLine($"using BASE.Services.BaseServices;");
-        sb.AppendLine($"using BASE.Model.{entityName};");
+        sb.AppendLine($"using IFAMILY.Model;"); // Giả sử có các DTO trong IFAMILY.Model
+        sb.AppendLine($"using IFAMILY.Services;"); // Thêm namespace cho IBaseService
+        sb.AppendLine($"using IFAMILY.Entity;");
+        sb.AppendLine($"using IFAMILY.Services.BaseServices;");
+        sb.AppendLine($"using IFAMILY.Model.{entityName};");
 
-        sb.AppendLine($"namespace BASE.Services.Interfaces");
+        sb.AppendLine($"namespace IFAMILY.Services.Interfaces");
         sb.AppendLine("{");
         sb.AppendLine($"    public interface I{entityName}Service : IBaseService<long, {entityName}, View{entityName}Dto, View{entityName}Dto, Create{entityName}Dto, Update{entityName}Dto, Filter{entityName}Dto>");
         sb.AppendLine("    {");
@@ -125,21 +125,21 @@ public class ServiceGenerator
         var sb = new StringBuilder();
 
         sb.AppendLine("using AutoMapper;");
-        sb.AppendLine("using BASE.CORE.Extensions;");
-        sb.AppendLine("using BASE.Data.Repository;");
-        sb.AppendLine("using BASE.Entity.IdentityAccess;");
-        sb.AppendLine("using BASE.Services.BaseServices;");
+        sb.AppendLine("using IFAMILY.CORE.Extensions;");
+        sb.AppendLine("using IFAMILY.Data.Repository;");
+        sb.AppendLine("using IFAMILY.Entity.IdentityAccess;");
+        sb.AppendLine("using IFAMILY.Services.BaseServices;");
         sb.AppendLine("using Microsoft.AspNetCore.Http;");
         sb.AppendLine("using Microsoft.AspNetCore.Identity;");
         sb.AppendLine("using Microsoft.Extensions.Logging;");
         sb.AppendLine("using System;");
-        sb.AppendLine("using BASE.Entity;");
+        sb.AppendLine("using IFAMILY.Entity;");
         sb.AppendLine("using System.Linq;");
-        sb.AppendLine($"using BASE.Model.{entityName};");
-        sb.AppendLine("using BASE.Services.Interfaces;");
+        sb.AppendLine($"using IFAMILY.Model.{entityName};");
+        sb.AppendLine("using IFAMILY.Services.Interfaces;");
         sb.AppendLine("using System.Threading.Tasks;");
         sb.AppendLine();
-        sb.AppendLine($"namespace BASE.Services.Implements");
+        sb.AppendLine($"namespace IFAMILY.Services.Implements");
         sb.AppendLine("{");
         sb.AppendLine($"    public class {entityName}Service : BaseService<long, {entityName}, View{entityName}Dto, View{entityName}Dto, Create{entityName}Dto, Update{entityName}Dto, Filter{entityName}Dto>, I{entityName}Service");
         sb.AppendLine("    {");

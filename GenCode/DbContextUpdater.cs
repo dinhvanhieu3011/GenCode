@@ -10,7 +10,7 @@ namespace GenCode
     {
         public static void AddEntityToDbContext<T>(string srcPath)
         {
-            string filePath = Path.Combine(srcPath, "BASE.Data", "Repository", "AppDbContext.cs");
+            string filePath = Path.Combine(srcPath, "IFAMILY.Data", "Repository", "AppDbContext.cs");
 
             // Đọc nội dung tệp
             var lines = File.ReadAllLines(filePath);
